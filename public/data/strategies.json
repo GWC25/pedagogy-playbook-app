@@ -1,22 +1,317 @@
 [
   {
-    "id": "retrieval-01",
-    "title": "Brain Dump",
-    "phase": "retrieval",
-    "prep": "Zero",
-    "tags": ["Retrieval", "UDL", "Individual"],
-    "youtube": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "commands": ["Recall", "List", "Identify"],
-    "description": "Learners write down everything they can remember about a topic from the previous week with no prompts."
+    "id": "rosenshine-daily-review",
+    "title": "Daily Review",
+    "phase": "starter",
+    "prep": "Low",
+    "searchQuery": "Rosenshine daily review classroom examples",
+    "commands": ["Recall", "Review", "Activate"],
+    "description": "Start each session with a short review of previous learning to activate prerequisite knowledge."
   },
   {
-    "id": "questioning-01",
+    "id": "cold-calling",
     "title": "Cold Calling",
     "phase": "new-learning",
     "prep": "Zero",
-    "tags": ["Questioning", "Engagement"],
-    "youtube": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "commands": ["Explain", "Justify", "Contrast"],
-    "description": "Ask a question, pause, then name a student to answer. Ensures all students are thinking."
+    "searchQuery": "Cold calling pedagogy Doug Lemov example",
+    "commands": ["Question", "Focus", "Engage"],
+    "description": "Ask the question first, pause for thinking time, then select a student by name to answer."
+  },
+  {
+    "id": "think-pair-share",
+    "title": "Think, Pair, Share",
+    "phase": "new-learning",
+    "prep": "Zero",
+    "searchQuery": "Think pair share classroom demonstration",
+    "commands": ["Discuss", "Collaborate", "Articulate"],
+    "description": "Give students generic thinking time, then time to discuss with a partner before sharing with the class."
+  },
+  {
+    "id": "dual-coding",
+    "title": "Dual Coding",
+    "phase": "new-learning",
+    "prep": "High",
+    "searchQuery": "Dual coding in the classroom Oliver Caviglioli",
+    "commands": ["Visualise", "Connect", "Simplify"],
+    "description": "Combine verbal explanations with visual representations to reduce cognitive load."
+  },
+  {
+    "id": "live-modelling",
+    "title": "Live Modelling",
+    "phase": "new-learning",
+    "prep": "Medium",
+    "searchQuery": "I do We do You do modelling strategy",
+    "commands": ["Demonstrate", "Show", "Process"],
+    "description": "The teacher works through a problem/task live under a visualiser or on screen, narrating their thought process."
+  },
+  {
+    "id": "check-understanding-hinge",
+    "title": "Hinge Point Question",
+    "phase": "new-learning",
+    "prep": "Medium",
+    "searchQuery": "Hinge questions Dylan Wiliam examples",
+    "commands": ["Assess", "Diagnose", "Pivot"],
+    "description": "A diagnostic multiple-choice question where every wrong answer reveals a specific misconception."
+  },
+  {
+    "id": "retrieval-grid",
+    "title": "Retrieval Grids",
+    "phase": "retrieval",
+    "prep": "Medium",
+    "searchQuery": "Retrieval practice grids classroom ideas",
+    "commands": ["Recall", "Select", "Compete"],
+    "description": "A grid of questions with varying point values based on how long ago the content was taught."
+  },
+  {
+    "id": "cornell-notes",
+    "title": "Cornell Notes",
+    "phase": "new-learning",
+    "prep": "Low",
+    "searchQuery": "How to take Cornell notes for students",
+    "commands": ["Summarise", "Structure", "Review"],
+    "description": "A systematic format for condensing and organizing notes, essential for HE progression."
+  },
+  {
+    "id": "no-opt-out",
+    "title": "No Opt Out",
+    "phase": "new-learning",
+    "prep": "Zero",
+    "searchQuery": "No opt out technique teach like a champion",
+    "commands": ["Persist", "Support", "Expect"],
+    "description": "A sequence that ensures a student who doesn't know the answer eventually gives the correct answer."
+  },
+  {
+    "id": "mini-whiteboards",
+    "title": "Show Me (MWB)",
+    "phase": "retrieval",
+    "prep": "Low",
+    "searchQuery": "Mini whiteboards formative assessment classroom",
+    "commands": ["Display", "Check", "Assess"],
+    "description": "Whole-class response system using mini-whiteboards to check understanding of every student at once."
+  },
+  {
+    "id": "frayer-model",
+    "title": "Frayer Model",
+    "phase": "new-learning",
+    "prep": "Low",
+    "searchQuery": "Frayer model vocabulary strategy examples",
+    "commands": ["Define", "Clarify", "Vocabulary"],
+    "description": "A four-square graphic organizer for vocabulary development."
+  },
+  {
+    "id": "exit-ticket",
+    "title": "Exit Ticket",
+    "phase": "plenary",
+    "prep": "Low",
+    "searchQuery": "Effective exit tickets for teachers",
+    "commands": ["Reflect", "Check", "Submit"],
+    "description": "A single question or short task at the end of a lesson to inform planning for the next session."
+  },
+  {
+    "id": "say-it-again-better",
+    "title": "Say It Again Better",
+    "phase": "new-learning",
+    "prep": "Zero",
+    "searchQuery": "Say it again better Tom Sherrington",
+    "commands": ["Refine", "Articulate", "Improve"],
+    "description": "Formative feedback technique to improve the quality of verbal responses."
+  },
+  {
+    "id": "concrete-examples",
+    "title": "Concrete Examples",
+    "phase": "new-learning",
+    "prep": "Medium",
+    "searchQuery": "Concrete examples learning strategy",
+    "commands": ["Illustrate", "Contextualise", "Clarify"],
+    "description": "Use specific examples to understand abstract ideas."
+  },
+  {
+    "id": "interleaving",
+    "title": "Interleaving",
+    "phase": "retrieval",
+    "prep": "Medium",
+    "searchQuery": "Interleaving vs blocking practice examples",
+    "commands": ["Mix", "Schedule", "Distinguish"],
+    "description": "Switching between ideas during a study session rather than studying one topic for a long time."
+  },
+  {
+    "id": "scaffolded-practice",
+    "title": "Scaffolded Practice",
+    "phase": "new-learning",
+    "prep": "High",
+    "searchQuery": "Scaffolding instruction examples",
+    "commands": ["Support", "Build", "Fade"],
+    "description": "Temporary supports that are gradually removed as students develop competence."
+  },
+  {
+    "id": "fishbowl-debate",
+    "title": "Fishbowl Debate",
+    "phase": "new-learning",
+    "prep": "Low",
+    "searchQuery": "Fishbowl discussion strategy classroom",
+    "commands": ["Debate", "Observe", "Critique"],
+    "description": "A small group discusses a topic in the center while the rest of the class observes."
+  },
+  {
+    "id": "do-now-prime",
+    "title": "Do Now (Prime)",
+    "phase": "starter",
+    "prep": "Low",
+    "searchQuery": "Do Now activity examples Doug Lemov",
+    "commands": ["Start", "Focus", "Prepare"],
+    "description": "A short activity written on the board that students start immediately upon entering."
+  },
+  {
+    "id": "question-elaboration",
+    "title": "Elaboration (Probing)",
+    "phase": "new-learning",
+    "prep": "Zero",
+    "searchQuery": "Probing questions for deep understanding",
+    "commands": ["Expand", "Justify", "Explain"],
+    "description": "Asking 'How?' and 'Why?' to push student thinking further."
+  },
+  {
+    "id": "silent-solo",
+    "title": "Silent Solo",
+    "phase": "new-learning",
+    "prep": "Low",
+    "searchQuery": "Independent practice Rosenshine classroom",
+    "commands": ["Practice", "Focus", "Independent"],
+    "description": "Independent practice phase where students work entirely alone to consolidate fluency."
+  },
+  {
+    "id": "zone-of-relevance",
+    "title": "Zone of Relevance",
+    "phase": "new-learning",
+    "prep": "Medium",
+    "searchQuery": "Zone of relevance teaching strategy",
+    "commands": ["Sort", "Evaluate", "Prioritise"],
+    "description": "Students place cards/terms onto a target board based on how relevant they are."
+  },
+  {
+    "id": "wagoll",
+    "title": "WAGOLL",
+    "phase": "new-learning",
+    "prep": "High",
+    "searchQuery": "WAGOLL teaching examples",
+    "commands": ["Model", "Analyze", "Compare"],
+    "description": "What A Good One Looks Like. Analyzing a model answer to understand success criteria."
+  },
+  {
+    "id": "austins-butterfly",
+    "title": "Austin's Butterfly",
+    "phase": "plenary",
+    "prep": "Medium",
+    "searchQuery": "Austin's Butterfly critique and feedback",
+    "commands": ["Critique", "Refine", "Improve"],
+    "description": "Specific, kind, and helpful critique to improve work through multiple drafts."
+  },
+  {
+    "id": "diamond-nine",
+    "title": "Diamond 9",
+    "phase": "new-learning",
+    "prep": "Medium",
+    "searchQuery": "Diamond 9 ranking activity",
+    "commands": ["Rank", "Prioritise", "Discuss"],
+    "description": "Ranking 9 statements/factors in a diamond shape to encourage debate on priority."
+  },
+  {
+    "id": "choral-response",
+    "title": "Choral Response",
+    "phase": "new-learning",
+    "prep": "Low",
+    "searchQuery": "Choral response classroom strategy",
+    "commands": ["Unison", "Drill", "Pronounce"],
+    "description": "Class responds in unison to a signal. Good for vocab, pronunciation, and factual check."
+  },
+  {
+    "id": "wait-time",
+    "title": "Wait Time",
+    "phase": "new-learning",
+    "prep": "Zero",
+    "searchQuery": "Wait time questioning technique",
+    "commands": ["Pause", "Think", "Delay"],
+    "description": "Deliberately pausing after asking a question to increase the quality and length of student answers."
+  },
+  {
+    "id": "snowballing",
+    "title": "Snowballing",
+    "phase": "new-learning",
+    "prep": "Low",
+    "searchQuery": "Snowballing discussion method",
+    "commands": ["Build", "Expand", "Collaborate"],
+    "description": "Discussion that grows from individuals to pairs, to fours, to whole class."
+  },
+  {
+    "id": "knowledge-organiser",
+    "title": "Knowledge Organiser",
+    "phase": "retrieval",
+    "prep": "High",
+    "searchQuery": "Using knowledge organisers for retrieval",
+    "commands": ["Review", "Self-Quiz", "Summarise"],
+    "description": "A single page summarizing the core facts and vocabulary for a unit."
+  },
+  {
+    "id": "stop-and-jot",
+    "title": "Stop and Jot",
+    "phase": "new-learning",
+    "prep": "Low",
+    "searchQuery": "Stop and jot teaching strategy",
+    "commands": ["Write", "Process", "Record"],
+    "description": "Short bursts of writing during discussion to ensure everyone is processing."
+  },
+  {
+    "id": "gallery-walk",
+    "title": "Gallery Walk",
+    "phase": "plenary",
+    "prep": "Medium",
+    "searchQuery": "Gallery walk classroom activity",
+    "commands": ["Move", "Review", "Critique"],
+    "description": "Work is displayed on walls/tables. Students move around to view and critique."
+  },
+  {
+    "id": "abc-feedback",
+    "title": "ABC Feedback",
+    "phase": "new-learning",
+    "prep": "Zero",
+    "searchQuery": "ABC feedback agree build challenge",
+    "commands": ["Agree", "Build", "Challenge"],
+    "description": "Structuring student responses to peers during discussion (Agree, Build, Challenge)."
+  },
+  {
+    "id": "jigsaw",
+    "title": "Jigsaw",
+    "phase": "new-learning",
+    "prep": "High",
+    "searchQuery": "Jigsaw cooperative learning method",
+    "commands": ["Teach", "Expert", "Collaborate"],
+    "description": "Students become 'experts' in one part of a topic and then teach it to their home group."
+  },
+  {
+    "id": "what-how-why",
+    "title": "What, How, Why",
+    "phase": "plenary",
+    "prep": "Low",
+    "searchQuery": "What How Why analysis structure",
+    "commands": ["Analyze", "Reflect", "Structure"],
+    "description": "A writing frame to deepen analysis in written answers."
+  },
+  {
+    "id": "gamified-quiz",
+    "title": "Gamified Quiz",
+    "phase": "retrieval",
+    "prep": "High",
+    "searchQuery": "Kahoot Blooket classroom examples",
+    "commands": ["Compete", "Recall", "React"],
+    "description": "Using digital tools (Kahoot, Blooket, Quizizz) for high-energy retrieval."
+  },
+  {
+    "id": "three-two-one",
+    "title": "3-2-1 Reflection",
+    "phase": "plenary",
+    "prep": "Low",
+    "searchQuery": "3-2-1 exit ticket strategy",
+    "commands": ["Summarise", "Question", "Reflect"],
+    "description": "Write down: 3 Things you learned, 2 Things interesting, 1 Question you still have."
   }
 ]
