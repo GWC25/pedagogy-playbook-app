@@ -46,8 +46,8 @@ export function initModal() {
                                 <div id="save-status" class="text-xs text-green-600 font-medium opacity-0 transition-opacity">
                                     ✅ Saved
                                 </div>
-                                <button id="export-btn" class="text-xs font-bold text-slate-500 hover:text-indigo-600 flex items-center gap-1 transition">
-                                    📥 Export to PDF
+                                <button id="export-btn" class="text-xs font-bold text-slate-500 hover:text-indigo-600 flex items-center gap-1 transition bg-white border border-slate-200 px-3 py-2 rounded-lg hover:shadow-sm hover:border-indigo-200">
+                                    📥 Export PDF
                                 </button>
                             </div>
                         </div>
@@ -69,37 +69,37 @@ export function initModal() {
     setupListeners();
 }
 
-// ... (Keep the openModal, closeModal, loadReflection, and setupListeners functions exactly the same as before)
-// ... Just make sure setupListeners includes the new export button listener eventually.
-
 export function openModal(strategy) {
     const modal = document.getElementById('activity-modal');
     const panel = document.getElementById('modal-panel');
     
+    // Populate Data
     document.getElementById('modal-title').textContent = strategy.title;
     document.getElementById('modal-phase').textContent = strategy.phase;
     document.getElementById('modal-desc').textContent = strategy.description || strategy.instructions;
     
+    // Populate Commands
     const cmdContainer = document.getElementById('modal-commands');
     cmdContainer.innerHTML = strategy.commands ? strategy.commands.map(cmd => 
         `<span class="text-xs bg-white text-indigo-600 px-2 py-1 rounded border border-indigo-200 font-medium">${cmd}</span>`
     ).join('') : '';
 
+    // Handle Video
     const videoFrame = document.getElementById('modal-video');
     if (strategy.youtube) {
         videoFrame.src = strategy.youtube;
-        videoFrame.parentElement.style.display = 'block';
+        videoFrame.parentElement.style.display = 'block'; // Ensure container is visible
     } else {
-        videoFrame.parentElement.style.display = 'none';
+        videoFrame.parentElement.style.display = 'none'; // Hide container if no video
     }
 
     loadReflection(strategy.id);
 
-    // Trap ID for saving
+    // Set Data Attributes for Logic
     document.getElementById('reflection-input').dataset.currentId = strategy.id;
-    // Trap Title for export
     document.getElementById('export-btn').dataset.currentTitle = strategy.title;
 
+    // Show Modal
     modal.classList.remove('hidden');
     setTimeout(() => {
         panel.classList.remove('scale-95', 'opacity-0');
@@ -117,22 +117,76 @@ function closeModal() {
 
     setTimeout(() => {
         modal.classList.add('hidden');
-        videoFrame.src = ""; 
+        videoFrame.src = ""; // Stop video audio
     }, 300);
 }
 
 function setupListeners() {
+    // Close Triggers
     document.getElementById('close-modal').addEventListener('click', closeModal);
     document.getElementById('modal-backdrop').addEventListener('click', closeModal);
 
+    // Reflection Auto-Save
     const textarea = document.getElementById('reflection-input');
     textarea.addEventListener('input', (e) => {
         const id = e.target.dataset.currentId;
         if (!id) return;
         localStorage.setItem(`reflection_${id}`, e.target.value);
+        
+        // Visual Feedback
         const status = document.getElementById('save-status');
         status.classList.remove('opacity-0');
         setTimeout(() => status.classList.add('opacity-0'), 2000);
+    });
+
+    // PDF Export Logic
+    const exportBtn = document.getElementById('export-btn');
+    exportBtn.addEventListener('click', () => {
+        // Ensure jsPDF is loaded
+        const { jsPDF } = window.jspdf;
+        if (!jsPDF) {
+            alert("PDF Library not loaded. Please refresh.");
+            return;
+        }
+
+        const doc = new jsPDF();
+        const title = exportBtn.dataset.currentTitle || "Pedagogy Reflection";
+        const notes = textarea.value;
+        const date = new Date().toLocaleDateString();
+
+        // PDF Styling
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(22);
+        doc.text("Pedagogy Reflection Log", 20, 20);
+
+        doc.setFontSize(12);
+        doc.setTextColor(100);
+        doc.text(`Date: ${date}`, 20, 30);
+        
+        doc.setDrawColor(200);
+        doc.line(20, 35, 190, 35); // Horizontal line
+
+        doc.setFont("helvetica", "bold");
+        doc.setTextColor(0);
+        doc.setFontSize(16);
+        doc.text(`Activity: ${title}`, 20, 50);
+
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(12);
+        
+        if (notes.trim().length > 0) {
+            doc.text("My Notes:", 20, 65);
+            doc.setFont("courier", "normal"); // Monospace for notes feels authentic
+            // Split text to fit page width (170mm width)
+            const splitNotes = doc.splitTextToSize(notes, 170);
+            doc.text(splitNotes, 20, 75);
+        } else {
+            doc.setFont("helvetica", "italic");
+            doc.setTextColor(150);
+            doc.text("(No reflection notes recorded for this session)", 20, 65);
+        }
+
+        doc.save(`Reflection - ${title}.pdf`);
     });
 }
 
