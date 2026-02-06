@@ -1,31 +1,36 @@
 // src/App.js
 
+// 1. IMPORT THE NEW MODAL SYSTEM
+import { initModal, openModal } from './components/Modal.js';
+
 const cardGrid = document.getElementById('card-grid');
 const searchBar = document.getElementById('search-bar');
 const phaseFilter = document.getElementById('phase-filter');
 
 let strategies = [];
 
-// 1. LOAD DATA
-// Note: If you are using standard GitHub hosting, the path includes 'public'.
-// If you are using a build tool like Vite, it might just be './data/strategies.json'
+// 2. INITIALIZE THE MODAL HTML (Injects it into the page immediately)
+initModal();
+
+// 3. LOAD DATA
+// Tries multiple paths to ensure it works on both GitHub Pages and Localhost
 async function loadStrategies() {
     try {
-        // Try the standard structure path first
+        // Primary path (Standard for many build tools)
         const response = await fetch('./public/data/strategies.json');
         if (!response.ok) throw new Error("Path not found");
         strategies = await response.json();
         renderCards(strategies);
     } catch (error) {
-        console.warn("Trying fallback path...");
-        // Fallback: If you decided to keep 'data' in the root folder
+        console.warn("Trying fallback path for data...");
+        // Fallback path (Often needed for raw GitHub Pages)
         const response = await fetch('./data/strategies.json');
         strategies = await response.json();
         renderCards(strategies);
     }
 }
 
-// 2. RENDER CARDS
+// 4. RENDER CARDS
 function renderCards(data) {
     if (data.length === 0) {
         cardGrid.innerHTML = `<p class="text-slate-500 col-span-full text-center py-10">No activities found matching your criteria.</p>`;
@@ -40,7 +45,7 @@ function renderCards(data) {
                     <button class="text-slate-300 hover:text-yellow-400 transition" aria-label="Add to favorites">⭐</button>
                 </div>
                 <h3 class="text-xl font-extrabold mb-2 group-hover:text-indigo-600 transition">${item.title}</h3>
-                <p class="text-slate-600 text-sm mb-4 line-clamp-2">${item.description}</p>
+                <p class="text-slate-600 text-sm mb-4 line-clamp-2">${item.description || item.instructions}</p>
                 <div class="flex flex-wrap gap-2 mb-6">
                     ${item.commands ? item.commands.map(cmd => 
                         `<span class="text-[10px] bg-slate-100 px-2 py-1 rounded text-slate-500 font-mono">#${cmd}</span>`
@@ -62,7 +67,7 @@ function renderCards(data) {
     });
 }
 
-// 3. FILTER LOGIC
+// 5. FILTER LOGIC
 function filterStrategies() {
     const term = searchBar.value.toLowerCase();
     const phase = phaseFilter.value;
@@ -78,17 +83,21 @@ function filterStrategies() {
     renderCards(filtered);
 }
 
-// 4. EVENT LISTENERS
-searchBar.addEventListener('input', filterStrategies);
-phaseFilter.addEventListener('change', filterStrategies);
-
-// 5. MODAL LOGIC (Placeholder)
-// This function needs to be on the window object or handled internally
+// 6. OPEN ACTIVITY (The Connector)
+// This function finds the data for the clicked card and sends it to the Modal component
 window.openActivity = (id) => {
     const strategy = strategies.find(s => s.id === id);
-    alert(`Coming soon: Detail view for ${strategy.title}\n\nInstructions: ${strategy.instructions || 'No instructions yet.'}`);
-    // Next step: We will replace this alert with a real Pop-up Modal
+    if (strategy) {
+        // Call the imported function from Modal.js
+        openModal(strategy);
+    } else {
+        console.error("Strategy not found:", id);
+    }
 };
+
+// 7. EVENT LISTENERS
+searchBar.addEventListener('input', filterStrategies);
+phaseFilter.addEventListener('change', filterStrategies);
 
 // Start the app
 loadStrategies();
