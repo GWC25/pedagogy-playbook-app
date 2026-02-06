@@ -1,1 +1,11 @@
-
+{
+  "id": "retrieval-01",
+  "title": "Brain Dump",
+  "phase": "Starter",
+  "prepEffort": "Zero",
+  "udlAlignment": ["Representation"],
+  "skills21cld": ["Self-Regulation"],
+  "youtubeUrl": "https://youtube.com/watch?v=...",
+  "instructions": "Ask learners to write down everything they remember from last session...",
+  "searchCommands": ["Recall", "Summarise", "Explain"]
+}
