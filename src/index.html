@@ -1,1 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedagogy Playbook | Digital Coaching</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .card-gradient { background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%); }
+        /* WCAG 2.2 Focus State */
+        :focus-visible { outline: 4px solid #3b82f6; outline-offset: 2px; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 transition-colors duration-300">
 
+    <nav class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200 px-6 py-4 flex justify-between items-center">
+        <h1 class="text-xl font-bold tracking-tight text-indigo-600">PEDAGOGY<span class="text-slate-400">PLAYBOOK</span></h1>
+        <div class="flex gap-4">
+            <button id="view-favorites" class="text-sm font-semibold hover:text-indigo-600 transition">⭐ Favorites</button>
+            <button id="view-reflections" class="text-sm font-semibold hover:text-indigo-600 transition">📝 My Reflections</button>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto p-6">
+        <section class="mb-12">
+            <div class="flex flex-col md:flex-row gap-4 mb-8">
+                <input type="text" id="search-bar" placeholder="Search techniques (e.g. 'Cold Calling')..." 
+                    class="w-full md:w-1/2 p-4 rounded-2xl border-2 border-slate-200 focus:border-indigo-500 transition-all shadow-sm"
+                    aria-label="Search learning activities">
+                
+                <select id="phase-filter" class="p-4 rounded-2xl border-2 border-slate-200 bg-white shadow-sm" aria-label="Filter by lesson phase">
+                    <option value="all">All Phases</option>
+                    <option value="starter">Starters / Do Now</option>
+                    <option value="new-learning">New Learning</option>
+                    <option value="retrieval">Retrieval Practice</option>
+                    <option value="plenary">Plenaries / Reflection</option>
+                </select>
+            </div>
+
+            <div id="card-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                </div>
+        </section>
+    </main>
+
+    <script src="src/app.js" type="module"></script>
+</body>
+</html>
